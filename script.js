@@ -31,13 +31,27 @@ function Book(title, author, pages, description, readStatus) {
 }
 
 function addBookToLibrary(book) {
-    myLibrary.push(book);
+   
     const card = document.createElement("div");
     card.classList.add("book-card");
 
+    const header = document.createElement("div");
     const bookTitle = document.createElement("h1");
     bookTitle.textContent = book.title;
-    card.appendChild(bookTitle);
+    header.appendChild(bookTitle);
+
+    const deleteButton = document.createElement("button");
+    const image = document.createElement("img");
+    image.src="img/trash-can-outline.svg";
+    image.classList.add("trash");
+    deleteButton.appendChild(image);
+    header.appendChild(deleteButton)
+
+    deleteButton.addEventListener("click", (e) => {
+        deleteBook(e);
+    })
+
+    card.appendChild(header);
 
     const bookAuthor = document.createElement("h2");
     bookAuthor.textContent = `by ${book.author}`;
@@ -57,6 +71,7 @@ function addBookToLibrary(book) {
 
     card.setAttribute("data-number", myLibrary.length);
     container.appendChild(card);
+    myLibrary.push(book);
 
 }
 
@@ -69,4 +84,23 @@ submitButton.addEventListener("click", (e) => {
     pagesInput.value = "";
     descriptionInput.value = "";
     readStatus.value = "";
+
+    modal.classList.remove("active");
+    opacity.classList.remove("active");
 })
+
+function deleteBook(e) {
+    const book = e.target.closest(".book-card");
+    console.log(book);
+    const number = +book.dataset.number;
+    console.log("BEFORE"+ myLibrary.length);
+    myLibrary.splice(number, 1);
+    console.log("AFTER" + myLibrary.length);
+    container.removeChild(book);
+
+    const allBooks = document.querySelectorAll(".book-card");
+    console.log(allBooks);
+    for (i = 0; i < allBooks.length; i++) {
+        allBooks[i].dataset.number = i;
+    }
+}
