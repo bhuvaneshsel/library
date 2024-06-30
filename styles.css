@@ -9,6 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: #111827;
 }
 
 .book-card {
@@ -23,11 +24,19 @@ body {
 
 
 .book-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
     border-radius: 10px;
     width: 500px;
     padding: 30px;
-    background-color: rgb(30, 33, 37);
+    background-color: #1f2937;
     color: white;
+}
+
+.book-modal.active {
+    transform: translate(-50%, -50%);
 }
 
 .book-modal h1 {
@@ -69,7 +78,7 @@ label {
     font-size: 0.9rem;
 }
 
-form div:last-child {
+form div:nth-child(3) {
     display: flex;
     justify-content: end;
 }
@@ -86,5 +95,24 @@ select {
     border-radius: 5px;
 }
 
+form button {
+    width: 7rem;
+    border: none;
+    background-color: #4b5563;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
 
+.opacity.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.8;
+    background-color: #030712;
+}
 
