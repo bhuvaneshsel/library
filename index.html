@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Library</title>
+</head>
+<body>
+    <div class="book-card">
+        <h1>Book Title</h1>
+        <h2>by Author</h2>
+        <p>387 pages</p>
+        <button>Read</button>
+    </div>
+    <button class="addBook">+</button>
+    <div class="book-modal">
+        <h1>ADD A BOOK</h1>
+        <form action="" method="post">
+            <div>
+                <div>
+                    <label for="title">TITLE</label>
+                    <input type="text" id="title" name="title">
+                </div>
+                <div>
+                    <label for="author">AUTHOR</label>
+                    <input type="text" id="author" name="author">
+                </div>
+                <div>
+                    <label for="pages">PAGES</label>
+                    <input type="text" id="pages" name="pages">
+                </div>
+            </div>
+            <div>
+                <label for="description">DESCRIPTION</label>
+                <textarea name="description" id="description"></textarea>
+            </div>
+            <div>
+                <select name="read_status" id="read_status">
+                    <option value="To read">To Read</option>
+                    <option value="Reading">Reading</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
